@@ -125,3 +125,12 @@ class Node:
             else:
                 return self.right.isBST()
         return True
+    
+    def isBalanced(self):
+        if self is None:
+            return True
+        lh = self.height(self.left)
+        rh = self.height(self.right)
+        if abs(lh - rh) <= 1 and self.left.isBalanced() and self.right.isBalanced():
+            return True
+        return False
